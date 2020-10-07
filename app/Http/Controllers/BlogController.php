@@ -18,11 +18,7 @@ class BlogController extends Controller
 
         $post = Posts::join('category', 'posts.category_id', '=', 'category.id')
                 ->select('posts.*', 'category.name as categoy_name','category.id as category_id')
-                //->where(['posts.id'=>6])
-                ->get();
-
-        //dd($post);
-        
+                ->get();      
     	return view('blog', compact('data','category_widget','tags_widget','post'));
     }
 
